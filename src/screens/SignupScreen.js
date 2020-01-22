@@ -1,9 +1,14 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, Button} from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-const SignupScreen =() => {
+const SignupScreen =({navigation}) => {
     return(
-        <Text>SignupScreen</Text>
+        <SafeAreaView>
+            <Text>SignupScreen</Text>
+            <Button title="Signin" onPress={()=> navigation.navigate('Signin')}/>
+            <Button title="MainFlow" onPress={()=> navigation.navigate('mainFlow')}/>
+        </SafeAreaView>
     )
 };
 

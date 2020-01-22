@@ -5,3 +5,7 @@
 
 #### Installation: 
 * npm install react-navigation
+* React navigation: npm install react-navigation-stack
+* npm install react-native-gesture-handler react-native-reanimated
+* npm install --save react-native-safe-area-context
+* npm install react-navigation-tabs
