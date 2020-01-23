@@ -9,3 +9,5 @@
 * npm install react-native-gesture-handler react-native-reanimated
 * npm install --save react-native-safe-area-context
 * npm install react-navigation-tabs
+* npm install react-native-elements
+* npm i --save react-native-vector-icons
