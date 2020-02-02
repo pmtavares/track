@@ -1,10 +1,15 @@
 import createDataContext from './createDataContext';
 import trackerApi from '../api/tracker';
-import console = require('console');
+
 
 const authReducer = (state, action) => {
     switch(action.type)
     {
+        case 'ADD_ERROR':
+            return{
+                ...state,
+                errorMessage: action.payload
+            }
         default:
             return state;
     }
@@ -22,6 +27,7 @@ const signUp = (dispatch) =>{
         catch(err)
         {
             console.log(err.message)
+            dispatch({type: 'ADD_ERROR', payload: 'Something went wrong'})
         }
         //if we signup, modify our state to be authenticated
 
@@ -60,5 +66,5 @@ const signOut = (dispatch) =>{
 export const {Provider, Context} = createDataContext(
     authReducer, 
     {signUp, signIn, signOut}, 
-    {isSigndIn: false}
+    {isSigndIn: false, errorMessage: ''}
 );

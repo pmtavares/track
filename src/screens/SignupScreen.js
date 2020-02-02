@@ -5,10 +5,13 @@ import {Text, Input, Button} from 'react-native-elements';
 import Spacer from '../components/Spacer';
 import {Context as AuthContext} from '../context/AuthContext';
 
+
 const SignupScreen =({navigation}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const {state, signup} = useContext(AuthContext);
+    const {state, signUp} = useContext(AuthContext);
+
+    console.log(state);
     return(
         <SafeAreaView style={styles.container}>
             <Spacer>
@@ -25,13 +28,19 @@ const SignupScreen =({navigation}) => {
                         autoCorrect={false} 
                         secureTextEntry
                         value={password} onChangeText={setPassword} />
-            </Spacer>       
+                {
+                    state.erroMessage ? <Text style={styleMedia.erroMessage}>{state.erroMessage}</Text> : null
+                }
+            </Spacer> 
+                 
            <Spacer>
-                <Button title ="Signup" onPress={() => signup({email, password})}/>
+                <Button title ="Signup" onPress={() => signUp({email, password})}/>
            </Spacer>
            
-
-           <Button title="Go to Track" onPress={()=>navigation.navigate('TrackList') }/>
+           <Spacer>
+                <Button title="Go to Track" onPress={()=>navigation.navigate('TrackList') }/>
+            </Spacer>
+           
         </SafeAreaView>
     )
 };
@@ -47,6 +56,11 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         marginBottom: 230
+    },
+    errorMessage: {
+        color: 'red',
+        marginLeft: 10,
+        marginTop: 15
     }
 });
 

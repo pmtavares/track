@@ -11,7 +11,7 @@
 * npm install react-navigation-tabs
 * npm install react-native-elements
 * npm i --save react-native-vector-icons
-* npm install ngrok
+* npm install -g ngrok
 
 #### Commands
 
