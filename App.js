@@ -9,7 +9,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import {
     createStackNavigator
 } from 'react-navigation-stack';
-
+import {setNavigator } from './src/navigationRef';
 
 import AccountScreen from './src/screens/AccountScreen';
 import SignupScreen from './src/screens/SignupScreen';
@@ -40,7 +40,7 @@ const App =  createAppContainer(switchNavigator);
 export default () => {
     return (
         <AuthProvider>
-            <App />
+            <App ref={(navigator) => {setNavigator(navigator)}}/>
         </AuthProvider>
     );
 };
